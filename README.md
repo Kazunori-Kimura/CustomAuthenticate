@@ -1,6 +1,11 @@
 
-[ASP.NET MVC] Authorizeフィルタのカスタマイズ
+[ASP.NET MVC] 簡単なカスタム認証機能の実装
 ===
+
+- LoginとMenuの2画面
+- 未認証状態でMenuにアクセスするとLoginに戻される
+- PostgreSQL上でアカウント管理を行う
+
 
 プロジェクトの作成
 ---
