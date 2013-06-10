@@ -1,0 +1,10 @@
+﻿
+/* ツールバー領域を確保 */
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.nav-list li, .nav-list .nav-header {
+    margin-left: -20px;
+    margin-right: -20px;
+}

@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE HTML>
+<html lang="ja" >
+<head runat="server">
+    <link type="text/css" rel="Stylesheet" href="/Content/bootstrap.min.css" />
+    <link type="text/css" rel="Stylesheet" href="/Content/style.css" />
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /> - CustomAuthorize</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/Menu/">CustomAuthorize</a>
+                <div class="nav-collapse collapse">
+                    <form class="navbar-form pull-right" onsubmit="return false;">
+                        <div class="input-prepend input-append">
+                            <span class="add-on"><i class="icon-user"></i></span>
+                            <span class="input-xlarge uneditable-input"><%= Html.Encode(HttpContext.Current.Session["USER_NAME"]) %></span>
+                            <button id="btnLogout" class="btn btn-primary">ログアウト</button>
+                        </div>
+                    </form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <script type="text/javascript" src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //ログアウトボタン
+            $("#btnLogout").click(function () {
+                $.get("/Login/Logoff", {}, function (data) {
+                    window.location.href = "/Login";
+                    return false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
